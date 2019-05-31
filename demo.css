@@ -1,0 +1,14 @@
+label {
+	display: block;
+	margin: 1em 0;
+}
+
+em {
+	font-style: normal;
+	text-decoration: underline;
+	color: green;
+}
+
+[disabled] {
+	opacity: .4
+}
