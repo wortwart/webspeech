@@ -12,3 +12,27 @@ em {
 [disabled] {
 	opacity: .4
 }
+
+.result {
+	border: 1px solid grey;
+	border-radius: .5em;
+	padding: 1em;
+	background-color: ivory;
+}
+
+.status {
+	min-height: 1em;
+}
+
+.colors {
+	margin: 1em 0;
+}
+
+.colors span {
+	display: inline-block;
+	font-size: .75em;
+	width: 5em;
+	padding: .5em;
+	margin: 0 .5em;
+	overflow: hidden;
+}

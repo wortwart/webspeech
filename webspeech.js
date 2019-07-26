@@ -1,6 +1,6 @@
-+function() {
+;+function() {
 	'use strict'
-	if (!'speechSynthesis' in window)
+	if (!('speechSynthesis' in window))
 		return alert('Keine Sprachausgabe!')
 
 	const

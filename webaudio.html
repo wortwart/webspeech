@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+	  <meta name="author" content="Herbert Braun">
+	  <meta name="viewport" content="initial-scale=1">
+		<title>Web Audio Demo</title>
+		<link rel="stylesheet" href="demo.css">
+	</head>
+	<body>
+		<h1>Web Audio Demo</h1>
+
+		<form action="#">
+			<fieldset>
+				<label>
+					Lautstärke:
+					<input type="range" min="0" max="1" step=".01" value=".1" id="volume">
+				</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>Tonmodulation</legend>
+				<label>
+					Tonhöhe:
+					<input type="range" min="30" max="8000" step="1" value="261.63" id="pitch">
+				</label>
+
+				<button role="switch" aria-checked="false" id="btnSound" data-pause="Pause" data-resume="Weiterspielen">Abspielen starten</button>
+			</fieldset>
+
+			<fieldset>
+				<label>
+					Dauer:
+					<input type="range" min=".01" max="10" step=".01" value="1" id="speed">
+				</label>
+
+				<legend>Einzeltöne</legend>
+				<button id="btnC">C</button>
+				<button id="btnCc">C#</button>
+				<button id="btnD">D</button>
+				<button id="btnDd">D#</button>
+				<button id="btnE">E</button>
+				<button id="btnF">F</button>
+				<button id="btnFf">F#</button>
+				<button id="btnG">G</button>
+				<button id="btnGg">G#</button>
+				<button id="btnA">A</button>
+				<button id="btnAa">A#</button>
+				<button id="btnH">H</button>
+				<button id="btnCC">C</button>
+			</fieldset>
+		</form>
+
+		<script async src="webaudio.js"></script>
+	</body>
+</html>
