@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+	  <meta name="author" content="Herbert Braun">
+	  <meta name="viewport" content="initial-scale=1">
+		<title>Webspeech: Demo</title>
+		<link rel="stylesheet" href="demo.css">
+	</head>
+	<body>
+		<h1>Webspeech: Demo</h1>
+
+		<form action="#">
+			<h2>Text (editierbar):</h2>
+			<div id="text" contenteditable>Hallo, Welt! Hier ein bisschen <abbr>Text</abbr>, damit ich was zum Vorlesen habe.</div>
+			<button role="switch" aria-checked="false" id="btnSpeak" data-pause="Pause" data-resume="Weiterlesen">Vorlesen starten</button>
+		</form>
+
+		<nav><a href="./">Zur Startseite</a></nav>
+		<script async src="speechsynthesis-demo.js"></script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+	  <meta name="author" content="Herbert Braun">
+	  <meta name="viewport" content="initial-scale=1">
+		<title>Web Audio Demo</title>
+		<link rel="stylesheet" href="demo.css">
+	</head>
+	<body>
+		<h1>Web Audio Demo</h1>
+
+		<form action="#">
+			<button role="switch" id="btnPlay">Play/Pause</button>
+			<label>
+				Lautstärke:
+				<input type="range" min="0" max="1" step=".01" value=".1" id="volume">
+			</label>
+			<label>
+				Tonhöhe:
+				<input type="range" min="30" max="8000" step="1" value="261.63" id="pitch">
+			</label>
+		</form>
+		<nav><a href="./">Zur Startseite</a></nav>
+		<script async src="webaudio-demo.js"></script>
+	</body>
+</html>

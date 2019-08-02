@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+	  <meta name="author" content="Herbert Braun">
+	  <meta name="viewport" content="initial-scale=1">
+		<title>Web Audio MP3</title>
+		<link rel="stylesheet" href="demo.css">
+	</head>
+	<body>
+		<h1>Web Audio MP3</h1>
+
+		<form action="#">
+			<fieldset>
+				<label>
+					Lautstärke:
+					<input type="range" min="0" max="1" step=".01" value=".1" id="volume">
+				</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>MP3:</legend>
+				<button role="switch" aria-checked="false" id="btnMp3" data-pause="Pause" data-resume="Weiterspielen">Abspielen starten</button>
+			</fieldset>
+		</form>
+
+		<nav><a href="./">Zur Startseite</a></nav>
+		<script async src="webaudio-mp3.js"></script>
+	</body>
+</html>

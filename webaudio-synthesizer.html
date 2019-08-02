@@ -4,11 +4,11 @@
 		<meta charset="utf-8">
 	  <meta name="author" content="Herbert Braun">
 	  <meta name="viewport" content="initial-scale=1">
-		<title>Web Audio Demo</title>
+		<title>Web Audio Synthesizer</title>
 		<link rel="stylesheet" href="demo.css">
 	</head>
 	<body>
-		<h1>Web Audio Demo</h1>
+		<h1>Web Audio Synthesizer</h1>
 
 		<form action="#">
 			<fieldset>
@@ -27,7 +27,6 @@
 
 				<button role="switch" aria-checked="false" id="btnSound" data-pause="Pause" data-resume="Weiterspielen">Abspielen starten</button>
 			</fieldset>
-
 			<fieldset>
 				<label>
 					Dauer:
@@ -49,8 +48,10 @@
 				<button id="btnH">H</button>
 				<button id="btnCC">C</button>
 			</fieldset>
+
 		</form>
 
-		<script async src="webaudio.js"></script>
+		<nav><a href="./">Zur Startseite</a></nav>
+		<script async src="webaudio-synthesizer.js"></script>
 	</body>
 </html>

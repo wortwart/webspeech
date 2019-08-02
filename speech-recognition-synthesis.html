@@ -4,15 +4,20 @@
 		<meta charset="utf-8">
 	  <meta name="author" content="Herbert Braun">
 	  <meta name="viewport" content="initial-scale=1">
-		<title>Webspeech Demo</title>
+		<title>Webspeech: Spracherkennung und -wiedergabe</title>
 		<link rel="stylesheet" href="demo.css">
 	</head>
 	<body>
-		<h1>Webspeech Demo</h1>
+		<h1>Webspeech: Spracherkennung und -wiedergabe</h1>
+		<h2>Funktioniert derzeit nur mit Google Chrome</h2>
+		<p>Klicken Sie auf den Button und sprechen Sie Text ein:</p>
+
+		<p class="status"></p>
+		<ul></ul>
+		<div class="result"></div>
 
 		<form action="#">
-			<h2>Text (editierbar):</h2>
-			<div id="text" contenteditable>Hallo, Welt! Hier ein bisschen <abbr>Text</abbr>, damit ich was zum Vorlesen habe.</div>
+			<div id="text"></div>
 
 			<label>
 				Geschwindigkeit:
@@ -29,31 +34,19 @@
 				<input type="range" min="0" max="1" step=".05" value=".5" id="volume">
 			</label>
 
-			<!--
-				<label for="lang">
-					Sprache:
-					<select id="lang">
-						<option>de-DE</option>
-						<option>de-AT</option>
-						<option>en-US</option>
-						<option>en-UK</option>
-						<option>fr-FR</option>
-					</select>
-				</label>
-			-->
-
 			<label>
 				Stimme:
 				<select id="voice">
 				</select>
 			</label>
 
-			<button role="switch" aria-checked="false" id="btnSpeak" data-pause="Pause" data-resume="Weiterlesen">Vorlesen starten</button>
+			<button role="switch" aria-checked="false" id="btnRec" data-stop="Stopp" data-play="Vorlesen" data-pause="Pause" data-resume="Weiterlesen" autofocus>Start</button>
 
 			<button id="btnReset">Zurücksetzen</button>
 
 		</form>
 
-		<script async src="webspeech.js"></script>
+		<nav><a href="./">Zur Startseite</a></nav>
+		<script async src="speech-recognition-synthesis.js"></script>
 	</body>
 </html>

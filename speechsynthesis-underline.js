@@ -38,12 +38,12 @@
 
 		// Handle events
 		toSpeak.onpause = ev => {
-			console.log(ev.type)
+			console.log(ev.type, ev)
 			$btnSpeak.textContent = resumeText
 		}
 
 		toSpeak.onresume = ev => {
-			console.log(ev.type)
+			console.log(ev.type, ev)
 			$btnSpeak.textContent = pauseText
 		}
 
@@ -68,10 +68,11 @@
 		toSpeak.onboundary = ev => {
 			if (ev.name === 'word') {
 				let i = ev.charIndex
+				const nonWordChars = /[\s,.:;?!"„“–-]/
 				while (i < text.length) {
-					if (text[i].match(/\W/) || i === text.length - 1) {
+					if (nonWordChars.test(text[i]) || i === text.length - 1) {
 						let lastLetterInx = i
-						if (text[i].match(/\w/) && i === text.length - 1)
+						if (!nonWordChars.test(text[i]) && i === text.length - 1)
 							lastLetterInx++	// text ends with letter
 						const t1 = document.createTextNode(text.slice(0, ev.charIndex))
 						const $em = document.createElement('em')
@@ -103,15 +104,15 @@
 
 	// Read settings
 	const setRate = ev => {
-		rate = parseFloat(ev.target.value)
+		rate = ev.target.value
 	}
 
 	const setPitch = ev => {
-		pitch = parseFloat(ev.target.value)
+		pitch = ev.target.value
 	}
 
 	const setVolume = ev => {
-		volume = parseFloat(ev.target.value)
+		volume = ev.target.value
 	}
 
 	const setVoice = ev => {
