@@ -4,11 +4,11 @@ This demo projects accompany a tutorial in [c't magazin](https://ct.de/) which s
 
 ## Demo apps
 
-  *[Sound output (simple)](webaudio-demo.html)
-  *[MP3 Player](webaudio-mp3.html)
-  *[Synthesizer](webaudio-synthesizer.html)
-  *[Speech output (simple)](speechsynthesis-demo.html)
-  *[Speech output with synchronized text](speechsynthesis-underline.html)
-  *[Speech recognition (picker)](speechrecognition-pick.html)
-  *[Speech recognition (free)](speechrecognition-dictate.html)
-  *[Speech recognition and output](speech-recognition-synthesis.html)
+  - [Sound output (simple)](webaudio-demo.html)
+  - [MP3 Player](webaudio-mp3.html)
+  - [Synthesizer](webaudio-synthesizer.html)
+  - [Speech output (simple)](speechsynthesis-demo.html)
+  - [Speech output with synchronized text](speechsynthesis-underline.html)
+  - [Speech recognition (picker)](speechrecognition-pick.html)
+  - [Speech recognition (free)](speechrecognition-dictate.html)
+  - [Speech recognition and output](speech-recognition-synthesis.html)
