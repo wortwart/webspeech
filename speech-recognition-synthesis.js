@@ -32,29 +32,30 @@
 		recog.start()
 		status = 'started'
 		$btnRec.textContent = btnTexts.stop
-		$status.textContent = runningText
-		console.info('Recognition started')
+		$status.textContent = 'Aufnahme läuft'
 	}
 
 	const stopRecog = () => {
 		recog.stop()
 		status = 'stopped'
 		$btnRec.textContent = btnTexts.play
-		if ($status.textContent === runningText)
-			$status.textContent = ''
-		console.info('Recognition stopped')
+		$status.textContent = 'Aufnahme beendet'
+	}
+
+	const emptyRecogInterim = () => {
+		while ($recogInterim.firstChild)
+			$recogInterim.removeChild($recogInterim.firstChild)
 	}
 
 	// Handle result
 	recog.onresult = ev => {
+		emptyRecogInterim()
 		const texts = []
-		while ($statusRecog.firstChild)
-			$statusRecog.removeChild($statusRecog.firstChild)
 		for (let i = 0; i < ev.results.length; i++) {
 			texts.push(ev.results[i][0].transcript)
 			const li = document.createElement('li')
 			li.textContent = 'Ergebnis: ' + ev.results[i][0].transcript + ', Verlässlichkeit: ' + ev.results[i][0].confidence
-			$statusRecog.append(li)
+			$recogInterim.append(li)
 		}
 		text = texts.join('. ')
 		$textfield.textContent = text
@@ -74,23 +75,26 @@
 
 	// Handle events
 	toSpeak.onpause = ev => {
+		$status.textContent = 'Wiedergabe pausiert'
 		status = 'resumed'
 		$btnRec.textContent = btnTexts.pause
 	}
 
 	toSpeak.onresume = ev => {
+		$status.textContent = 'Wiedergabe wird fortgesetzt'
 		status = 'paused'
 		$btnRec.textContent = btnTexts.resume
 	}
 
 	toSpeak.onstart = ev => {
+		$status.textContent = 'Wiedergabe läuft'
 		status = 'playing'
 		$btnRec.textContent = btnTexts.pause
 		changeControls()
 	}
 
 	toSpeak.onend = ev => {
-		console.info('Ende nach ' + ev.elapsedTime + ' ms')
+		$status.textContent = 'Wiedergabe beendet, Dauer: ' + ev.elapsedTime + ' ms'
 		status = 'stopped'
 		$btnRec.textContent = btnTexts.play
 		$textfield.textContent = text
@@ -130,8 +134,9 @@
 			if (speechSynthesis.speaking)
 				return
 		} else {
-			if (speechSynthesis.speaking)
+			if (speechSynthesis.speaking) {
 				return speechSynthesis.pause()
+			}
 		}
 
 		// Apply settings and text
@@ -205,6 +210,11 @@
 			field.value = field.attributes['value']
 		})
 		setVoice()
+		$textfield.textContent = ''
+		emptyRecogInterim()
+		status = null
+		$btnRec.textContent = btnTexts.start
+		$status.textContent = ''
 	}
 
 	// Fetch available voices
@@ -222,7 +232,7 @@
 
 	// UI elements
 	const $status = document.querySelector('.status')
-	const $statusRecog = document.querySelector('ul')
+	const $recogInterim = document.querySelector('ul')
 	const $textfield = document.querySelector('.result')
 	const $rateRange = document.getElementById('rate')
 	const $pitchRange = document.getElementById('pitch')
@@ -242,7 +252,7 @@
 	;['stop', 'play', 'pause', 'resume'].forEach(el => {
 		btnTexts[el]= $btnRec.dataset[el]
 	})
-	const runningText = 'Aufnahme läuft'
+	btnTexts.start = $btnRec.textContent
 
 	voiceSelection()
 	speechSynthesis.onvoiceschanged = voiceSelection
