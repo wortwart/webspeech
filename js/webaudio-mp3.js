@@ -28,7 +28,11 @@
 
 	const playSoundfile = (context, url) => {
 		fetch(url)
-		.then(resp => resp.arrayBuffer())
+		.then(resp => {
+			if (!resp.ok)
+				throw Error(`MP3 file ${resp.url} could not be loaded: ${resp.status} (${resp.statusText})`)
+			return resp.arrayBuffer()
+		})
 		.then(buffer => {
 			context.decodeAudioData(buffer, data => {
 				const source = context.createBufferSource()
@@ -37,6 +41,10 @@
 				source.start()
 				source.loop = true
 			})
+		})
+		.catch(err => {
+			console.error(err)
+			alert(err)
 		})
 	}
 
@@ -48,5 +56,5 @@
 	$volumeControl.addEventListener('change', setVolume);
 	setVolume()
 	$btnMp3.addEventListener('click', playPause);
-	playSoundfile(audioCtx, 'alphabet.mp3')
+	playSoundfile(audioCtx, 'demo.mp3')
 }()
