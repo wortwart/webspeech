@@ -30,15 +30,15 @@
 	}
 
 	const setSpeed = ev => {
-		speed = $speedControl.value
+		speed = +$speedControl.value
 	}
 
 	const playKey = ev => {
 		const note = ev.target.id.slice(3)
 		const freq = freqs.get(note)
-		console.log(note, freq, speed)
 		const pitch = audioCtxKbd.createOscillator()
-		pitch.connect(volumes[volumes.length-1])
+		console.log(note, freq, speed)
+		pitch.connect(volumes[volumes.length - 1])
 		pitch.frequency.value = freq
 		pitch.start()
 		pitch.stop(audioCtxKbd.currentTime + speed)
