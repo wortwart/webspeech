@@ -47,7 +47,10 @@ em {
 .colors span {
 	display: inline-block;
 	font-size: .75em;
-	width: 5em;
+	min-width: 8em;
+	max-width: 20em;
+	width: 12vw;
+	height: 1.25em;
 	padding: .5em;
 	margin: 0 .5em;
 	overflow: hidden;
